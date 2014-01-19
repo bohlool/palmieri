@@ -22,6 +22,8 @@ ADMINS = (
 
 MANAGERS = (
     'Orizio Pierangelo', 'pierangelo1982@gmail.com'),
+    ('Other manager', 'mail@example.com'),
+    )
 
 
 
