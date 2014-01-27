@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^contact/', include("contact_form.urls", namespace="contact_form")),
+    url(r'^ckeditor/', include('ckeditor.urls')),
 )
 
 if settings.DEBUG:  

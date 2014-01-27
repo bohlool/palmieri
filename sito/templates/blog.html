@@ -14,12 +14,12 @@
 
 <div class="row rowprincipale ">
   {% for post in post_list %}
-  <div class="col-sm-6 col-md-3">
+  <div class="col-sm-6 col-md-3" style="height: 460px;">
     <div class="thumbnail">{% load cropping %}
       <img class="imgblogthumb" src="{% cropped_thumbnail post "croppingthumb" %}" alt="...">
       <div class="caption">
         <h3 class="titoloblog">{{ post.titolo|truncatechars:20 }}</h3>
-        <p>{{ post.body|truncatechars:140}}</p>
+        <p>{{ post.body|safe|truncatechars:80}}</p>
         <p><a href="{{ post.id }}" class="btn pulsanteleggi" role="button">Continua...</a><!--<a href="{{ post.id }}" class="btn btn-default" role="button">Button</a> --></p>
       </div>
     </div>

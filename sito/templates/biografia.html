@@ -29,25 +29,26 @@
         <span class='st_email_large' displayText='Email'></span>
     </div><!-- DIV COL MD5 -->
 
-   
-    <div class="col-md-12">
-    <!-- CAROUSEL -->
-      {% if filer_list %}
-      <div id="makeMeScrollable">
-        {% for filer in filer_list %}
-        <img src="{{ filer.image.url }}" alt="..." class="img-thumbnail" style="height: 230px; width: auto;" id="field" />
-        {% endfor %}
-      </div><!-- Fine Make Scrollable -->
-      {% endif %}
-<!-- FINE CAROUSEL -->
-   <H6 style="color: #ffffff">Foto: Renato Giaccari    –    Stylist: Danizza Della Vecchia   –    Make up: Lorena Trivellone
-Thanks to: In vitro- McFinella- Before- EllyF</H6>
-    </div><!-- MD-12 -->
 
-  
+
+    {% if galleriapagina_list %}
+
+  <div class="row">
+    {% for galleriapagina in galleriapagina_list %}
+    <div class="col-md-2">{% load cropping %}
+        <a href="{% cropped_thumbnail galleriapagina "cropping" %}" data-lightbox="roadtrip">
+        <img src="{% cropped_thumbnail galleriapagina "croppingthumb" %}" alt="..." class="img-thumbnail imgmedia2"></a><!--
+        <H6 class="sfondoblogpage"; style="color: #000000"><i class="fa fa-chevron-circle-up"></i> {{ galleriapagina.didascalia }}</h6>
+        -->
+    </div>  
+    {% endfor %}
 
   </div><!-- close Row -->
-
+  {% endif %}
+   <H6 style="color: #ffffff">Foto: Renato Giaccari    –    Stylist: Danizza Della Vecchia   –    Make up: Lorena Trivellone
+Thanks to: In vitro- McFinella- Before- EllyF</H6>
 </div><!-- container close -->
 
 {% endblock %}
+
+

@@ -15,7 +15,7 @@
 
  </div>
  
-  <div class="col-md-3">
+  <div class="col-md-3" style="padding-bottom: 30px;">
 
     {% for post in post_list %}
     <div class="media mediasfondo">
@@ -24,7 +24,7 @@
         </a>
         <div class="media-body">
             <h4 class="media-heading titoloblog">{{ post.titolo|truncatechars:20 }}</h4>
-            <p class="testobloghome">{{ post.body|truncatechars:90}} <a href="./blog/{{ post.id }}" class="btn pulsanteleggi2" role="button">Continua...</a></p>
+            <p class="testobloghome">{{ post.body|safe|truncatechars:90}} <a href="./blog/{{ post.id }}" class="btn pulsanteleggi2" role="button">Continua...</a></p>
             
         </div>
     </div>

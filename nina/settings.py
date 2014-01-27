@@ -22,8 +22,6 @@ ADMINS = (
 
 MANAGERS = (
     'Orizio Pierangelo', 'pierangelo1982@gmail.com'),
-    ('Other manager', 'mail@example.com'),
-    )
 
 
 
@@ -66,6 +64,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'contact_form',
     'filer',
     #'django_social_share',
@@ -131,6 +130,8 @@ MEDIA_ROOT = '/home/pierangelo/Scrivania/palmieri/nina/media/'
 
 MEDIA_URL = "http://127.0.0.1:8000/media/"
 
+CKEDITOR_UPLOAD_PATH = "/home/pierangelo/Scrivania/palmieri/nina/media/ckedditor/uploads"
+
 #Adjust the thumbnail processors for easy-thumbnails
 from easy_thumbnails.conf import Settings as thumbnail_settings
 THUMBNAIL_PROCESSORS = (
@@ -153,6 +154,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'youremail@gmail.com'
-EMAIL_HOST_PASSWORD = 'your password'
-DEFAULT_FROM_EMAIL = 'youremail@gmail.com'
+EMAIL_HOST_USER = 'pierangelo1982@gmail.com'
+EMAIL_HOST_PASSWORD = 'mediolanum'
+DEFAULT_FROM_EMAIL = 'pierangelo1982@gmail.com'
+
+#ckeditors
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 400,
+        'width': 800,
+    },
+}

@@ -32,7 +32,7 @@
     <div class="col-md-7 sfondoblogpage">
         <h1 class="titoloblogpage">{{ post.titolo }}</h1>
         <h6>{{ post.pub_date }}</h6>
-        <p class="testoblogpage">{{ post.body }}</p>
+        <p class="testoblogpage">{{ post.body|safe }}</p>
         <p></p>
         
         <!-- <span class='st_sharethis_large' displayText='ShareThis'></span> -->

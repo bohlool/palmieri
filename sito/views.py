@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from filer.models import *
-from sito.models import Post, Galleria, Gallery, Televisione, Video, Episodio, Curriculum, Galleriapagina
+from sito.models import Post, Galleria, Gallery, Televisione, Video, Episodio, Curriculum, Galleriapagina, Galleriatelevisione
 from django.contrib.syndication.views import Feed
 
 
@@ -49,12 +49,13 @@ class TelevisionePageView(DetailView):
         context = super(TelevisionePageView, self).get_context_data(**kwargs)
         context['video_list'] = Video.objects.filter(programma = context['televisione'].id)[:1]
         context['episodio_list'] = Episodio.objects.filter(programma = context['televisione'].id)[:4]
-        context['filer_list'] = Image.objects.filter(folder_id = context['televisione'].galleria_folder)
+        #context['filer_list'] = Image.objects.filter(folder_id = context['televisione'].galleria_folder)
+        context['galleriatelevisione_list'] = Galleriatelevisione.objects.filter(programma = context['televisione'].id)
         return context
 
 class BioView(ListView):
-    queryset = Image.objects.filter(folder_id = 3)
-    context_object_name = 'filer_list'
+    queryset = Galleriapagina.objects.filter(pagina = 'Biografia')
+    context_object_name = 'galleriapagina_list'
     template_name = 'biografia.html'
 
 class NinaView(ListView):

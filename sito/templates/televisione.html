@@ -23,7 +23,7 @@
       <img class="imgblogthumb" src="{% cropped_thumbnail televisione "croppingthumb" %}" alt="...">
       <div class="caption">
         <h3 class="titoloblog">{{ televisione.titolo|truncatechars:20 }}</h3>
-        <p>{{ televisione.body|truncatechars:140}}</p>
+        <p>{{ televisione.body|safe|truncatechars:140}}</p>
         <p><a href="{{ televisione.id }}" class="btn pulsanteleggi" role="button">Continua...</a><!--<a href="{{ post.id }}" class="btn btn-default" role="button">Button</a> --></p>
       </div>
     </div>

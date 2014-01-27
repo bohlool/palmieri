@@ -4,6 +4,7 @@ from image_cropping import ImageRatioField, ImageCropField
 from filer.fields.image import FilerImageField
 from filer.fields.file import FilerFileField
 from filer.fields.folder import FilerFolderField
+from ckeditor.fields import RichTextField
 
 
 
@@ -38,7 +39,8 @@ class Post(models.Model):
     cropping = ImageRatioField('image__image_field', '700x500')
     croppingthumb = ImageRatioField('image__image_field', '250x250')
     croppinghome = ImageRatioField('image__image_field', '100x100')
-    body = models.TextField(null=True, blank=True)
+    #body = models.TextField(null=True, blank=True)
+    body = RichTextField(null=True, blank=True)
     tags = TaggableManager()
     pub_date = models.DateTimeField('date published')
 
@@ -54,7 +56,7 @@ class Televisione(models.Model):
     cropping = ImageRatioField('image__image_field', '700x500')
     croppingthumb = ImageRatioField('image__image_field', '350x213')
     youtube = models.CharField(max_length=300, null=True, blank=True)
-    body = models.TextField(null=True, blank=True)
+    body = RichTextField(null=True, blank=True)
     galleria_folder = FilerFolderField(null=True, blank=True)
     inizio_programma = models.DateTimeField('Inizio')
     fine_programma = models.DateTimeField('Fine')
@@ -99,8 +101,8 @@ YEAR_CHOICES = (
 class Curriculum(models.Model):
     titolo = models.CharField(max_length=200,  null=True, blank=True)
     anno = models.CharField(choices=YEAR_CHOICES, max_length=200, null=True, blank=True)
-    inizio_programma = models.DateTimeField('date published')
-    fine_programma = models.DateTimeField('date published')
+    inizio_programma = models.DateTimeField('Inizio')
+    fine_programma = models.DateTimeField('Fine')
 
     class Meta:
                 verbose_name_plural = "Curriculum"
@@ -133,7 +135,7 @@ class Galleria(models.Model):
     croppingminiatura = ImageRatioField('image', '350x213')
 
     class Meta:
-                verbose_name_plural = "Galleria"
+                verbose_name_plural = "Galleria Per Post in Blog"
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return self.titolo
@@ -148,7 +150,7 @@ class Video(models.Model):
     pub_date = models.DateTimeField('date published')
 
     class Meta:
-                verbose_name_plural = "Video"
+                verbose_name_plural = "Video per Televisione"
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return self.titolo
@@ -159,7 +161,7 @@ class Episodio(models.Model):
     programma = models.ForeignKey(Televisione)
     data_onda = models.DateTimeField('Data in Messa in Onda')
     canale = models.CharField(max_length=200,  null=True, blank=True)
-    descrizione = models.TextField(null=True, blank=True)
+    descrizione = RichTextField(null=True, blank=True)
     url = models.CharField(max_length=200,  null=True, blank=True)
     embedded = models.TextField(null=True, blank=True)
     image = models.ForeignKey(Image)
@@ -208,7 +210,24 @@ class Galleriapagina(models.Model):
     croppingminiatura = ImageRatioField('image', '350x213')
 
     class Meta:
-                verbose_name_plural = "Galleriapagina"
+                verbose_name_plural = "Galleria Pagine Statiche"
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return self.titolo
+
+class Galleriatelevisione(models.Model):
+    titolo = models.CharField(max_length=200,  null=True, blank=True)
+    programma = models.ForeignKey(Televisione)
+    didascalia = models.TextField(null=True, blank=True)
+    #image = models.ImageField(upload_to='uploaded_galleria')
+    #image = FilerImageField(related_name="book_covers")
+    image = models.ForeignKey(Gallery)
+    cropping = ImageRatioField('image__image_field', '800x600')
+    croppingthumb = ImageRatioField('image__image_field', '250x250')
+    croppingminiatura = ImageRatioField('image', '350x213')
+
+    class Meta:
+                verbose_name_plural = "Galleria Televisione"
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return self.titolo

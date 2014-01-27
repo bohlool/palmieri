@@ -40,20 +40,6 @@ body{
     margin-top: 5%;    
 }
 
-.bodycontact {
-   background: url('img/sfondo1palm.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    margin-top: 5%;    
-  color: #000000; list-style: none; font-family: arial; font-weight: thiner;}
-
-.bodycontact a:link {color: #ed297b;}
-.bodycontact a:hover {color: #ed297b;}
-.bodycontact a:active {color: #ed297b;}
-.bodycontact a:focus {color: #ed297b;}
-
 a {
   color: #ffffff;
   text-decoration: none;
@@ -458,36 +444,4 @@ min-height: 367px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 20px;
-}
-
-.mediasfondosocial {
-  color: #ed297b;
-  background-color: rgba(255,255,255,0.5);
-  padding: 10px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 20px;
-}
-
-.mediasfondosocial a {
-  color: #ed297b;
-  font-size: 20pt;
-  text-indent: 10px;
-}
-
-.mediasfondosocial a:hover {
-  color: #ed297b;
-}
-
-.mediasfondosocial a:active {
-  color: #ed297b;
-}
-
-.mediasfondosocial a:focus {
-  color: #ed297b;
-}
-
-.mediasfondosocial a:link {
-  color: #ed297b;
 }

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from sito.models import Post, Image, Allegato, Televisione, Curriculum, Galleria, Gallery, Video, Episodio, Folder, Galleriapagina
+from sito.models import Post, Image, Allegato, Televisione, Curriculum, Galleria, Gallery, Video, Episodio, Folder, Galleriapagina, Galleriatelevisione
 from image_cropping import ImageCroppingMixin
 #rom django import forms
 
@@ -19,3 +19,4 @@ admin.site.register(Video, MyModelAdmin)
 admin.site.register(Episodio, MyModelAdmin)
 admin.site.register(Folder, MyModelAdmin)
 admin.site.register(Galleriapagina, MyModelAdmin)
+admin.site.register(Galleriatelevisione, MyModelAdmin)

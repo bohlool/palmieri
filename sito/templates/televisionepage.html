@@ -21,7 +21,7 @@
     <div class="col-md-6 sfondoblogpage">
         <h1 class="titoloblogpage">{{ televisione.titolo }}</h1>
         <h6>{{ post.pub_date }}</h6>
-        <p class="testoblogpage">{{ televisione.body }}</p>
+        <p class="testoblogpage">{{ televisione.body|safe }}</p>
         <p></p>
         
         <!-- <span class='st_sharethis_large' displayText='ShareThis'></span> -->
@@ -89,13 +89,18 @@
   
 <!-- CAROUSEL -->
 
-  {% if filer_list %}
-  <div id="makeMeScrollable">
-    {% for filer in filer_list %}
-    <img src="{{ filer.image.url }}" alt="..." class="img-thumbnail" style="height: 230px; width: auto;" id="field" />
-  {% endfor %}
-  </div><!-- Fine Make Scrollable -->
+  {% if galleriatelevisione_list %}
+<div class="row ">
+    {% for galleriatelevisione in galleriatelevisione_list %}
+    <div class="col-md-2">{% load cropping %}
+        <a href="{% cropped_thumbnail galleriatelevisione "cropping" %}" data-lightbox="roadtrip">
+        <img src="{% cropped_thumbnail galleriatelevisione "croppingthumb" %}" alt="..." class="img-thumbnail imgmedia2"></a>
+        <H6 class="sfondoblogpage"; style="color: #000000"><i class="fa fa-chevron-circle-up"></i> {{ galleriatelevisione.didascalia }}</h6>
+    </div>  
+    {% endfor %}
+  </div><!-- close Row -->
   {% endif %}
+
 
 <!-- FINE CAROUSEL -->
 
