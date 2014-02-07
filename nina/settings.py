@@ -96,7 +96,7 @@ DATABASES = {
         'ENGINE':'django.db.backends.mysql',
         'NAME': 'palmieriweb',
         'USER': 'root',
-        'PASSWORD': 'alnitek',
+        'PASSWORD': 'xxxxxxxxx',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -155,7 +155,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'pierangelo1982@gmail.com'
-EMAIL_HOST_PASSWORD = 'mediolanum'
+EMAIL_HOST_PASSWORD = 'xxxxxxxxxxx'
 DEFAULT_FROM_EMAIL = 'pierangelo1982@gmail.com'
 
 #ckeditors
