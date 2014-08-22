@@ -1,9 +1,13 @@
-palmieri
+palmieri - install requirements
 ========
 
-djano-image-cropping + easy_thumbnails
+django
 
-djanfo-filer
+easy-thumbnails
+
+django-image-cropping
+
+django-filer
 
 django-contact-form
 
